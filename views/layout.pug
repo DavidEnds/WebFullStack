@@ -1,0 +1,26 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="css/bulma.css")
+        title Websita
+    body
+        block header
+            nav.navbar.is-dark
+                .navbar-brand
+                    a.navbar-item(href="/")
+                        img(src="images/nuclear-energy.png")
+                        span.title.is-size-5.has-text-white(style=" margin-left: 10px") Nuclear Boards
+                .navbar-menu
+                    .navbar-end
+                        a.navbar-item(href="/boards") Boards
+                        a.navbar-item(href="/register")
+                            button.button Sign up
+                        a.navbar-item(href="/login")
+                            button.button Sign in
+        main.container
+            block content
+
+
+                        
