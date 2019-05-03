@@ -1,4 +1,16 @@
 extend layout
 block content
     .columns.is-centered
-        .column.is-one-third
+        .column.is-one-third.box(style="margin-top: 30px")
+            h1.title.has-text-centered Login
+            form
+                .field
+                    label.label Email
+                    .control
+                        input.input(type="email" placeholder="E-mail" requied)
+                .field
+                    label.label Password
+                    .control
+                        input.input(type="password" placeholder="Password" requied minlength="7")
+                .has-text-centered
+                    button.button.is-info(type="submit") Login

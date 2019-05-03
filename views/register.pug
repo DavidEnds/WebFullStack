@@ -3,3 +3,18 @@ block content
     .columns.is-centered
         .column.is-one-third.box(style="margin-top: 30px")
             h1.title.has-text-centered Register
+            form(method="POST" action='/register')
+                .field
+                    label.label Username
+                    .control
+                        input.input(type="text" placeholder="Username" requied name="username")
+                .field
+                    label.label Email
+                    .control
+                        input.input(type="email" placeholder="E-mail" requied name="email")
+                .field
+                    label.label Password
+                    .control
+                        input.input(type="password" placeholder="Password" requied minlength="7" name="password")
+                .has-text-centered
+                    button.button.is-info(type="submit") Register
