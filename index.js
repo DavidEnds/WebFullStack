@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-	res.render('index', { title: 'Página principal' });
+	res.render('index', { title: 'Nuclear Boards' });
 });
 
 app.get('/register', function(req, res) {
