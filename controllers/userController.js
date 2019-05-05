@@ -34,3 +34,24 @@ module.exports.registerUser = function(req, res) {
 		}
 	});
 };
+
+module.exports.login = function(req, res) {
+	User.findOne({ email: req.body.email }).then(function(user) {
+		if (!user) {
+			res.render('login', { title: 'login', error: 'No hay un usuario con ese email' });
+		}
+
+		// si hemos llegado aqui es que hay un user
+
+		const isPasswordValid = bcrypt.compareSync(req.body.password, user.password);
+
+		if (isPasswordValid == false) {
+			res.render('login', { title: 'Login', error: 'La contraseña es incorrecta.' });
+		} else {
+			req.session.user = user;
+			res.redirect('/');
+		}
+
+		// si hemos llegado hasta aqui es que el usuario es correcto
+	});
+};

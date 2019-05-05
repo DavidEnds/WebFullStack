@@ -14,11 +14,16 @@ html(lang="en")
                         span.title.is-size-5.has-text-white(style=" margin-left: 10px") Nuclear Boards
                 .navbar-menu
                     .navbar-end
-                        a.navbar-item(href="/boards") Boards
-                        a.navbar-item(href="/register")
-                            button.button Sign up
-                        a.navbar-item(href="/login")
-                            button.button Sign in
+                        if user 
+                            a.navbar-item(href="/boards") Boards
+                            a.navbar-item(href="/profile")  #{user.username}
+                            
+                        else
+                            a.navbar-item(href="/boards") Boards
+                            a.navbar-item(href="/register")
+                                button.button Sign up
+                            a.navbar-item(href="/login")
+                                button.button Sign in
         main.container
             if error
                 .notification.is-danger(style= "margin-top: 50px") #{error}
