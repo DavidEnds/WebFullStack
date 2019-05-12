@@ -55,3 +55,11 @@ module.exports.login = function(req, res) {
 		// si hemos llegado hasta aqui es que el usuario es correcto
 	});
 };
+
+module.exports.checkSession = function(req, res, next) {
+	if (req.session.user) {
+		next();
+	} else {
+		res.render('login', { title: 'Login', error: 'Debes estar logeado.' });
+	}
+};

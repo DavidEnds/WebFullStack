@@ -15,7 +15,9 @@ mongoose.connection.on('error', function(error) {
 });
 
 require('./models/User');
+require('./models/Board');
 const userController = require('./controllers/userController');
+const boardController = require('./controllers/boardController');
 app.set('view engine', 'pug');
 
 app.use(express.static(__dirname + '/public'));
@@ -60,13 +62,17 @@ app.get('/login', function(req, res) {
 	res.render('login', { title: 'Login' });
 });
 
-app.get('/boards', function(req, res) {
-	res.render('boards', { title: 'Boards' });
+app.get('/newboard', userController.checkSession, function(req, res) {
+	res.render('newBoard', { title: 'Nueva placa' });
 });
+
+app.get('/boards', userController.checkSession, boardController.getUserBoards);
 
 app.post('/register', userController.validateRegister, userController.registerUser);
 
 app.post('/login', userController.login);
+
+app.post('/newBoard', userController.checkSession, boardController.createBoard);
 
 app.use(function(req, res) {
 	res.render('404', { title: 'Error 404' });

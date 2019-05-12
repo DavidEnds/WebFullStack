@@ -1,1 +1,7 @@
 extend layout
+block content
+    if boards
+        h1 Tus placas
+        each board in boards
+            h1 #{board.name}
+            p #{board.description}

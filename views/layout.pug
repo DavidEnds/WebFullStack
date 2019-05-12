@@ -17,7 +17,8 @@ html(lang="en")
                     .navbar-end
                         if user 
                             a.navbar-item(href="/boards") Boards
-                            a.navbar-item(href="/profile")  #{user.username}
+                            a.navbar-item(href="/newBoard") Add Board
+                            a.navbar-item.has-text-weight-bold.has-text-warning(href="/profile")  #{user.username}
                             
                         else
                             a.navbar-item(href="/boards") Boards

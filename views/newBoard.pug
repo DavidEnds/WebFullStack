@@ -1,0 +1,16 @@
+extend layout
+block content
+    .columns.is-centered
+        .column.is-one-third.box(style="margin-top: 30px")
+            h1.title.has-text-centered Nueva Placa
+            form(method="POST" action='/newboard')
+                .field
+                    label.label Nombre
+                    .control
+                        input.input(type="text" placeholder="Nombre" requied name="name")
+                .field
+                    label.label Descripción
+                    .control
+                        input.input(type="text" placeholder="Descripción" requied minlength="15" name="description")
+                .has-text-centered
+                    button.button.is-info(type="submit") Añadir
