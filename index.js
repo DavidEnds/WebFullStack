@@ -16,6 +16,7 @@ mongoose.connection.on('error', function(error) {
 
 require('./models/User');
 require('./models/Board');
+require('./models/Data');
 const userController = require('./controllers/userController');
 const boardController = require('./controllers/boardController');
 app.set('view engine', 'pug');
@@ -73,6 +74,10 @@ app.post('/register', userController.validateRegister, userController.registerUs
 app.post('/login', userController.login);
 
 app.post('/newBoard', userController.checkSession, boardController.createBoard);
+
+app.get('/board/:board_id', boardController.getBoardById);
+
+app.post('/send_data', boardController.saveData);
 
 app.use(function(req, res) {
 	res.render('404', { title: 'Error 404' });
