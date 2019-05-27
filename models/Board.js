@@ -16,4 +16,19 @@ const BoardSchema = new Schema({
 	}
 });
 
+BoardSchema.virtual('data', {
+	ref: 'Data',
+	localField: '_id',
+	foreignField: 'board'
+});
+
+function autopopulate(next) {
+	this.populate('data');
+	next();
+}
+
+BoardSchema.pre('find', autopopulate);
+BoardSchema.pre('findOne', autopopulate);
+BoardSchema.pre('findById', autopopulate);
+
 module.exports = mongoose.model('Board', BoardSchema);

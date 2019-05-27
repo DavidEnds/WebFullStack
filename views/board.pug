@@ -1,3 +1,15 @@
 extend layout
+
 block content
     h1.title #{board.name}
+    p.content Copia este numero en tu arduino para poder enviar la info: 
+        b #{board.id}
+
+    ul.list
+        each val in board.data
+            li.list-item #{val.timestamp} // #{val.value}
+    canvas#my-chart
+block footerContent
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js")
+    script.
+        

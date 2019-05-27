@@ -5,6 +5,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet", href="/css/bulma.css")
         link(rel="shortcut icon", href="/images/nuclear-energy.png", type="image/x-icon")
+        block headContent
         title #{title}
     body
         block header
@@ -31,5 +32,5 @@ html(lang="en")
                 .notification.is-danger(style= "margin-top: 50px") #{error}
             block content
 
-
+        block footerContent
                         
